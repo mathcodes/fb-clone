@@ -3,6 +3,7 @@ import Head from "next/head";
 import { useAuthState } from "react-firebase-hooks/auth";
 import NavBar from "../components/NavBar";
 import MainContent from "../components/MainContent";
+import RightMenu from "../components/RightMenu";
 import { auth } from "../firebase/firebase";
 
 
@@ -19,15 +20,14 @@ const Home: NextPage = () => {
         />
       </Head>
       <NavBar />
-      <div className="w-full lg:w-2/3 xl:w-2/5 pt-32 lg:pt-16 px-2">
+      <section className="flex justify-center h-screen">
+        <RightMenu />
+        <div className="w-full lg:w-2/3 xl:w-2/5 pt-32 lg:pt-16 px-2">
           {user && (
-            <>
-              <MainContent />
-              
-            </>
+            <MainContent />
           )}
-    
         </div>
+      </section>
     </div>
   );
 };
