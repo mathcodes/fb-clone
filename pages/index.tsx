@@ -5,6 +5,7 @@ import NavBar from "../components/NavBar";
 import MainContent from "../components/MainContent";
 import RightMenu from "../components/RightMenu";
 import LeftMenu from "../components/LeftMenu";
+import PostForm from "../components/PostForm";
 import NotUserMenu from "../components/NotUserMenu";
 import { auth } from "../firebase/firebase";
 
@@ -26,7 +27,10 @@ const Home: NextPage = () => {
         <RightMenu />
         <div className="w-full lg:w-2/3 xl:w-2/5 pt-32 lg:pt-16 px-2">
           {user && (
-            <MainContent />
+            <>
+              <MainContent />
+              <PostForm />
+            </>
           )}
         </div>
         {user ? <LeftMenu /> : <NotUserMenu />}

@@ -6,13 +6,16 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase/firebase";
 import { faker } from "@faker-js/faker";
 
+// Type declaration for props: 'MainContentProps'
 type MainContentProps = {};
 
 const MainContent: React.FC<MainContentProps> = () => {
+  // Get User from Firebase
   const [user] = useAuthState(auth);
-
+  // Setup Suggestions State
   const [suggestions, setSuggestions] = useState<any[]>([]);
 
+  // Get Suggestions from Faker API with useEffect
   useEffect(() => {
     const suggestions = [...Array(4)].map((_, i) => ({
       userId: faker.datatype.uuid(),
@@ -27,6 +30,7 @@ const MainContent: React.FC<MainContentProps> = () => {
 
   return (
     <div className="relative flex space-x-2 pt-4">
+      {/* First Block in Row - USER */}
       <div className="w-1/4 sm:w-1/6 h-44 rounded-xl shadow overflow-hidden flex flex-col group cursor-pointer">
         <div className="h-3/5 overflow-hidden">
           <img
@@ -45,6 +49,7 @@ const MainContent: React.FC<MainContentProps> = () => {
         </div>
       </div>
 
+      {/* Second Block in Row - HIGHLIGHTS */}
       <div className="w-1/4 sm:w-1/6 h-24 rounded-xl overflow-hidden">
         <div className="relative h-full group cursor-pointer">
           <img
@@ -54,13 +59,15 @@ const MainContent: React.FC<MainContentProps> = () => {
           />
           <div className="w-full h-full bg-black absolute top-0 left-0 bg-opacity-10"></div>
           <span className="absolute bottom-0 left-2 pb-2 font-semibold text-white">
-            Your story
+            Highlights
           </span>
           <div className="w-10 h-10 rounded-full overflow-hidden absolute top-2 left-2 border-4 border-teal-500">
             <img src={user?.photoURL as string} alt="Profile picture" />
           </div>
         </div>
       </div>
+
+      {/* Third Block in Row - SUGGESTIONS *MAPPED* */}
       {suggestions.map((data, index) => (
         <div
           className="w-1/4 sm:w-1/6 h-24 rounded-xl overflow-hidden"
@@ -83,6 +90,7 @@ const MainContent: React.FC<MainContentProps> = () => {
         </div>
       ))}
 
+      {/* Last Element in Row - ARROW */}
       <div className="w-12 h-12 rounded-full hidden lg:grid place-items-center text-2xl text-teal-700 border-solid border-teal-700 bg-white absolute -right-6 top-1/3 transform -translate-y-1/2 border border-gray-200 cursor-pointer hover:text-white hover:bg-teal-700 shadow dark:bg-dark-third dark:border-dark-third dark:text-dark-txt">
         <ArrowForwardIosIcon />
       </div>
