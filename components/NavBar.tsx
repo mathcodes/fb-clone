@@ -2,6 +2,7 @@
 import { signOut } from "firebase/auth";
 import { useRouter } from "next/router";
 import React from "react";
+import LogoutIcon from '@mui/icons-material/Logout';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase/firebase";
 
@@ -21,11 +22,15 @@ const NavBar: React.FC<NavBarProps> = () => {
         <div className="flex items-center justify-between w-full md:w-max px-4 py-2">
           {user ? (
             <>
-              <div className="mr-2 hidden md:inline-block">
+              <div className="mr-2 hidden md:inline-block object-contain">
                 <img
+                  style={{
+                    border: "20px",
+                    marginRight: "80px",
+                  }}
                   src="https://www.jonchristie.net/favicon.png"
                   alt="jonchristie.net logo"
-                  className="w-32 h-auto rounded-full"
+                  className="w-10 h-auto rounded-full overflow-hidden"
                 />
               </div>
               <div className="inline-block md:hidden">
@@ -95,11 +100,16 @@ const NavBar: React.FC<NavBarProps> = () => {
                 onClick={logout}
                 className="cursor-pointer inline-flex items-center justify-center p-1 rounded-full hover:bg-gray-200 dark:hover:bg-dark-third mx-1"
               >
-                <img
-                  src={user?.photoURL as string}
-                  alt="Profile picture"
-                  className="rounded-full h-10 w-10"
-                />
+                <div className="group cursor-pointer inline-flex items-center justify-center p-1 rounded-full hover:bg-gray-200 dark:hover:bg-dark-third mx-1">
+                  <img
+                    src={user?.photoURL as string}
+                    alt="Profile picture"
+                    className="rounded-full h-10 w-10 group-hover:hidden"
+                  />
+                  <div className="text-2xl mt-1 ml-4 place-items-center bg-gray-200 dark:bg-dark-third rounded-full w-6 h-10 cursor-pointer hover:bg-gray-200 dark:text-dark-txt hidden group-hover:inline">
+                    <LogoutIcon className="text-teal-700" />
+                  </div>
+                </div>
                 <span className="mx-2 font-semibold dark:text-dark-txt">
                   {user?.displayName}
                 </span>

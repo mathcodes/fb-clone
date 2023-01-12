@@ -34,15 +34,15 @@ const Login: React.FC<LoginProps> = () => {
           href="https://www.jonchristie.net/favicon.png"
         />
       </Head>
-      <div className="min-h-screen flex items-center justify-center bg-blue-100 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen flex items-center justify-center bg-indigo-300 py-12 px-4 sm:px-6 lg:px-8">
         <img
           style={{
             border: "20px",
             marginRight: "80px",
-            width: "700px",
+            width: "500px",
             height: "500px",
           }}
-          className="object-cover rounded-md"
+          className="object-contain rounded-md"
           src="https://www.jonchristie.net/favicon.png"
         />
         <hr />
@@ -54,18 +54,38 @@ const Login: React.FC<LoginProps> = () => {
               src="https://www.jonchristie.net/favicon.png"
               alt="Workflow"
             />
-            <h2 className="mt-6 text-center text-4xl font-bold text-gray-900">
+            <h2 className="mt-6 text-center text-3xl font-thin text-gray-900">
               Sign in to your account
             </h2>
           </div>
           <div className="mt-8 space-y-6">
-            <div>
+            <div className="group">
               <button
                 onClick={() => signInWithGoogle()}
-                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-xl font-medium rounded-md text-white bg-blue-600 hover:bg-lightblue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-50"
-              >
+                className="
+                  group 
+                  relative 
+                  w-full
+                  flex 
+                  justify-center 
+                  py-2 
+                  px-4 
+                  border 
+                  border-solid 
+                  font-light
+                  rounded-md
+                  text-xl
+                  text-teal-700
+                  hover:text-white
+                  bg-white 
+                  group-hover:bg-teal-700
+                  focus:outline-none 
+                  focus:ring-2 
+                  focus:ring-offset-2 
+                  focus:ring-indigo-50"
+                >
                 <LockPersonIcon className="mr-4 mt-1" />
-                Sign with Google
+                Sign in with Google
               </button>
             </div>
           </div>
