@@ -4,6 +4,8 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import NavBar from "../components/NavBar";
 import MainContent from "../components/MainContent";
 import RightMenu from "../components/RightMenu";
+import LeftMenu from "../components/LeftMenu";
+import NotUserMenu from "../components/NotUserMenu";
 import { auth } from "../firebase/firebase";
 
 
@@ -27,6 +29,7 @@ const Home: NextPage = () => {
             <MainContent />
           )}
         </div>
+        {user ? <LeftMenu /> : <NotUserMenu />}
       </section>
     </div>
   );

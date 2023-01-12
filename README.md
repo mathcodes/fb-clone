@@ -4,12 +4,37 @@
 
 This is a starter template for [Next.js](https://nextjs.org/) projects with [TypeScript](https://www.typescriptlang.org/) and [Tailwind CSS](https://tailwindcss.com/). Includes [Firebase](https://firebase.google.com/) authentication and database.
 
-<hr>
-<h2 align="center">Getting Started</h2>
-<hr>
+<h2>Table of Contents</h2>
 
-## Configuration
+- [Stack Overview](#so)
+- [Getting Started](#gs)
+  - [Configuration](#co)
+  - [Installation](#in)
+- [License](#li)
+- [Let's Connect!](#lc)
 
+
+<hr>
+<h2 align="center" id="so">Stack Overview:</h2>
+<hr>
+`NextJS` is a framework for building server-rendered React applications. It allows for efficient performance and optimized SEO by pre-rendering pages on the server.
+
+`TypeScript` is a superset of JavaScript that adds optional static typing and other features to improve code quality and maintainability.
+
+`TailwindCSS` is a utility-first CSS framework that makes it easy to create consistent, responsive designs.
+
+`MUI` is a Material-UI library for React that provides a set of pre-built components that follow the Material Design guidelines.
+
+`Firebase` is a Backend-as-a-Service platform that provides a variety of services for building web and mobile applications, including authentication, database storage, and cloud functions.
+
+Together, these technologies can be used to build a full-stack web application with user authentication, login, API endpoints, and database storage while rendering a consistent and responsive design that optimizes performance, size, and scalability.
+
+<hr>
+<h2 align="center" id="gs">Getting Started</h2>
+<hr>
+ 
+<h3 align="center" id="gs">Configuration</h3>
+<hr>
 ### Firebase config:
 
 Register a new web app under your [Firebase project](https://console.firebase.google.com/u/0/) and copy the config to your `.env.local` file:
@@ -82,7 +107,7 @@ const nextConfig = {
 module.exports = nextConfig
 ```
 <hr>
-<h2 align="center">Installation</h2>
+<h3 align="center" id="in">Installation</h3>
 <hr>
 
 Install dependencies:
@@ -120,15 +145,17 @@ npm run start
 # or
 yarn start
 ```
+<hr>
+<h2 align="center" id="li">License</h2>
+<hr>
 
-## License
 ```
 MIT
 ```
 
-
-<h1 align="center">Let's Connect!</h1>
-
+<hr>
+<h1 align="center" id="lc">Let's Connect!</h1>
+<hr>
 <p align="center">
   <a href="https://jonchristie.net" target="_blank">
     <img src="https://img.shields.io/static/v1?label=|&message=SITE&color=4faeba&style=plastic&logo=react&logo-color=white"/>
