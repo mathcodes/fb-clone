@@ -1,19 +1,6 @@
-### People
+# FB Clone
+Built with NextJS, TypeScript, TailwindCSS, MUI, and Firebase for authentication and the DB.
 
-|ico|emoji|ico|emoji|
-|---|---|---|---|
-|:bowtie:|`:bowtie:`|:smile:|`:smile:`|
-|:laughing:|`:laughing:`|:blush:|`:blush:`|
-|:smiley:|`:smiley:`|:relaxed:|`:relaxed:`|
-|:smirk:|`:smirk:`|:heart_eyes:|`:heart_eyes:`|
-|:kissing_heart:|`:kissing_heart:`|:kissing_closed_eyes:|`:kissing_closed_eyes:`|
-|:flushed:|`:flushed:`|:relieved:|`:relieved:`|
-|:satisfied:|`:satisfied:`|:grin:|`:grin:`|
-<hr>
-<h1 align="center">nextjs-typescript-tailwindcss-firebase</h1>
-<hr>
-
-This is a starter template for [Next.js](https://nextjs.org/) projects with [TypeScript](https://www.typescriptlang.org/) and [Tailwind CSS](https://tailwindcss.com/). Includes [Firebase](https://firebase.google.com/) authentication and database.
 
 <h2>Table of Contents</h2>
 
@@ -157,30 +144,7 @@ npm run start
 # or
 yarn start
 ```
-<hr>
-<h2 align="center" id="cu">Customizations</h2>
-<hr>
 
-$\mathfrak{\color{orange}{package.json}}$
-:smirk:
-
-```
-\tilde{a}
-```
-<!-- - ![#f03c15](https://placehold.co/300x30/fff/f03c15.png) #fv03c15 -->
-
-<span style="color: orange; background:gray; border:solid; border-radius:3px; padding:0.5rem;">package.json</span> This template is intended to be a starting point for your project. It is not intended to be a complete solution for every use case. You will need to customize the template to fit your needs.
-
-```diff
-- text in red 
-+ text in green
-! text in orange
-# Hhr
-@@ he @@ 
-!! ff !!
--- 44 --
-++ $$ ++
-```
 
 <hr>
 <h2 align="center" id="li">License</h2>
