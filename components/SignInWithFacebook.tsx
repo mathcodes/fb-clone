@@ -43,7 +43,7 @@ const SignInWithFacebook: React.FC<SignInWithFacebookProps> = () => {
         <LockPersonIcon className="mr-auto mt-auto mb-auto" />
         <img
           className="w-6 h-6 mt-auto mb-auto mr-5"
-          src="https://www.jonchristie.net/favicon.png"
+          src="https://crackberry.com/sites/crackberry.com/files/styles/large/public/topic_images/2013/facebook-logo-3.png?itok=Qp_qZi2a"
           alt=""
         />
         <p className="mr-auto">Sign with Facebook</p>

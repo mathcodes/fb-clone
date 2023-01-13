@@ -1,5 +1,7 @@
 import { onSnapshot, query, collection, orderBy } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+
 import { firestore } from "../firebase/firebase";
 import Post from "./Post";
 import PostSkeleton from "./Skeleton";
@@ -25,22 +27,35 @@ export default function Feed({}: Props) {
     setTimeout(() => {
       if (posts) {
         setLoading(false);
-      } else {
-        setLoading(true);
-      }
-    }, 6000);
+      } else return;
+    }, 3000);
   }, [posts]);
 
   return (
     <>
       {loading ? (
-        <>
-          {posts.map((data) => (
-            <PostSkeleton key={data.id} loading={loading} />
-          ))}
-        </>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+        >
+          <PostSkeleton loading={loading} />
+          <PostSkeleton loading={loading} />
+          <PostSkeleton loading={loading} />
+          <PostSkeleton loading={loading} />
+          <PostSkeleton loading={loading} />
+          <PostSkeleton loading={loading} />
+          <PostSkeleton loading={loading} />
+          <PostSkeleton loading={loading} />
+          <PostSkeleton loading={loading} />
+          <PostSkeleton loading={loading} />
+        </motion.div>
       ) : (
-        <div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+        >
           {posts.map((post) => (
             <div key={post.id}>
               <Post
@@ -50,10 +65,11 @@ export default function Feed({}: Props) {
                 image={post.data().image}
                 profileImage={post.data().profileImage}
                 timestamp={post.data().timestamp}
+                isClicked={true}
               />
             </div>
           ))}
-        </div>
+        </motion.div>
       )}
     </>
   );
