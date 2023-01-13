@@ -81,6 +81,7 @@ export default function PhotoModel({
             </div>
           )}
           <hr />
+          {/* CREATE FUNCTIONALITY HERE TO UPLOAD PHOTO INTO POST */}
           <div className="flex justify-end mt-4 gap-5">
             {selectedFile ? (
               <button

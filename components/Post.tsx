@@ -1,15 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useEffect, useState } from "react";
-import ThumbUpIcon from "@mui/icons-material/ThumbUp";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
-import InsertCommentIcon from "@mui/icons-material/InsertComment";
-import ReplyIcon from "@mui/icons-material/Reply";
-import moment from "moment";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, firestore } from "../firebase/firebase";
-import CameraAltIcon from "@mui/icons-material/CameraAlt";
 import { faker } from "@faker-js/faker";
+import CameraAltIcon from "@mui/icons-material/CameraAlt";
+import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import InsertCommentIcon from "@mui/icons-material/InsertComment";
+import LoopIcon from "@mui/icons-material/Loop";
+import ReplyIcon from "@mui/icons-material/Reply";
+import ThumbUpIcon from "@mui/icons-material/ThumbUp";
+import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
 import {
   addDoc,
   collection,
@@ -21,8 +19,11 @@ import {
   serverTimestamp,
   setDoc,
 } from "firebase/firestore";
-import LoopIcon from "@mui/icons-material/Loop";
-import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
+import moment from "moment";
+import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth, firestore } from "../firebase/firebase";
+import { motion } from "framer-motion";
 
 type PostProps = {
   author: any;
@@ -108,7 +109,7 @@ const Post: React.FC<PostProps> = ({
   };
 
   return (
-    <div className="shadow bg-white dark:bg-dark-second dark:text-dark-txt mt-4 rounded-lg">
+    <div className="shadow bg-white  dark:text-white mt-4 rounded-lg dark:shadow-2xl dark:bg-[#28282B]">
       {/* <!-- POST AUTHOR --> */}
       <div className="flex items-center justify-between px-4 py-2">
         <div className="flex space-x-2 items-center">
@@ -122,7 +123,7 @@ const Post: React.FC<PostProps> = ({
           </div>
           <div>
             <div className="font-semibold">{author}</div>
-            <span className="text-sm text-gray-500">
+            <span className="text-sm text-gray-500 dark:text-gray-400">
               {moment(new Date(timestamp?.seconds * 1000)).fromNow()}
             </span>
           </div>
@@ -134,20 +135,22 @@ const Post: React.FC<PostProps> = ({
       {/* <!-- END POST AUTHOR --> */}
 
       {/*  <!-- POST CONTENT --> */}
-      <div className="text-justify px-4 py-2">{caption}</div>
+      {caption && <div className="text-justify px-4 py-2">{caption}</div>}
       {/* <!-- END POST CONTENT --> */}
 
       {/* <!-- POST IMAGE --> */}
-      <div className="flex justify-center py-2 m-auto">
-        <img src={image} alt="Post image" />
-      </div>
+      {image && (
+        <div className="flex justify-center py-2 m-auto">
+          <img src={image} alt="Post image" />
+        </div>
+      )}
       {/*  <!-- END POST IMAGE --> */}
 
       {/* <!-- POST REACT --> */}
       <div className="px-4 py-2">
         <div className="flex items-center justify-between">
           <div className="flex flex-row-reverse items-center">
-            <span className="ml-2 text-gray-500 dark:text-dark-txt">
+            <span className="ml-2 text-gray-500 dark:text-gray-300">
               {likes.length}
             </span>
             <span className="rounded-full grid place-items-center text-2xl -ml-2 text-yellow-600">
@@ -160,7 +163,7 @@ const Post: React.FC<PostProps> = ({
               <ThumbUpIcon />
             </span>
           </div>
-          <div className="text-gray-500 dark:text-dark-txt">
+          <div className="text-gray-500 dark:text-gray-300">
             <span className="mr-2">{comments.length} comments</span>
             <span> {faker.random.numeric()} Share</span>
           </div>
@@ -169,39 +172,54 @@ const Post: React.FC<PostProps> = ({
       {/* <!-- END POST REACT --> */}
 
       {/* <!-- POST ACTION --> */}
+
       <div className="py-2 px-4">
         {user && (
-          <div className="border border-gray-200 dark:border-dark-third border-l-0 border-r-0 py-1">
+          <div className="border border-gray-200 dark:border-gray-900 border-l-0 border-r-0 py-1">
             <div className="flex space-x-2">
               {hasLikes ? (
-                <div
-                  className="w-1/3 flex space-x-2 justify-center items-center hover:bg-gray-100 dark:hover:bg-dark-third text-xl py-2 rounded-lg cursor-pointer text-blue-500 dark:text-dark-txt"
+                <motion.div
+                  className="w-1/3 flex space-x-2 justify-center items-center hover:bg-gray-100 dark:hover:bg-gray-800  text-xl py-2 rounded-lg cursor-pointer text-blue-500"
                   onClick={likePost}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
                 >
                   <ThumbUpIcon />
                   <span className="text-sm font-semibold">Like</span>
-                </div>
+                </motion.div>
               ) : (
-                <div
-                  className="w-1/3 flex space-x-2 justify-center items-center hover:bg-gray-100 dark:hover:bg-dark-third text-xl py-2 rounded-lg cursor-pointer text-gray-500 dark:text-dark-txt"
+                <motion.div
+                  className="w-1/3 flex space-x-2 justify-center items-center hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200  text-xl py-2 rounded-lg cursor-pointer text-gray-500 dark:text-gray-300"
                   onClick={likePost}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
                 >
                   <ThumbUpOutlinedIcon />
                   <span className="text-sm font-semibold">Like</span>
-                </div>
+                </motion.div>
               )}
 
-              <div
-                className="w-1/3 flex space-x-2 justify-center items-center hover:bg-gray-100 dark:hover:bg-dark-third text-xl py-2 rounded-lg cursor-pointer text-gray-500 dark:text-dark-txt"
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                className={
+                  open
+                    ? `w-1/3 flex space-x-2 justify-center items-center bg-gray-100 dark:bg-gray-800  dark:hover:bg-gray-800  text-xl py-2 rounded-lg cursor-pointer text-gray-500 dark:text-gray-300 dark:hover:text-gray-200`
+                    : `w-1/3 flex space-x-2 justify-center items-center hover:bg-gray-100 dark:hover:bg-gray-800 text-xl py-2 rounded-lg cursor-pointer text-gray-500 dark:text-gray-300 dark:hover:text-gray-200`
+                }
                 onClick={open ? () => setOpen(false) : () => setOpen(true)}
               >
                 <InsertCommentIcon />
                 <span className="text-sm font-semibold">Comment</span>
-              </div>
-              <div className="w-1/3 flex space-x-2 justify-center items-center hover:bg-gray-100 dark:hover:bg-dark-third text-xl py-2 rounded-lg cursor-pointer text-gray-500 dark:text-dark-txt">
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                className="w-1/3 flex space-x-2 justify-center items-center hover:bg-gray-100 dark:hover:bg-gray-800 text-xl py-2 rounded-lg cursor-pointer text-gray-500 dark:text-gray-300 dark:hover:text-gray-200"
+              >
                 <ReplyIcon />
                 <span className="text-sm font-semibold">Share</span>
-              </div>
+              </motion.div>
             </div>
           </div>
         )}
@@ -215,6 +233,7 @@ const Post: React.FC<PostProps> = ({
             <>
               <div className="py-2 px-4  h-36 overflow-y-scroll scrollbar-thin scrollbar-thumb-black">
                 {/* <!-- COMMENT --> */}
+
                 {comments.map((data) => (
                   <>
                     <div className="flex space-x-2">
@@ -224,15 +243,15 @@ const Post: React.FC<PostProps> = ({
                         className="w-9 h-9 rounded-full"
                       />
                       <div>
-                        <div className="bg-gray-100 dark:bg-dark-third p-2 rounded-2xl text-sm">
+                        <div className="bg-gray-100 dark:bg-gray-800 p-2 rounded-2xl text-sm">
                           <span className="font-semibold block">
                             {data.data().username}
                           </span>
                           <span>{data.data().comment}</span>
                         </div>
-                        <div className="p-2 text-xs text-gray-500 dark:text-dark-txt">
+                        <div className="p-2 text-xs text-gray-500 dark:text-gray-300">
                           {moment(
-                            new Date(timestamp?.seconds * 1000)
+                            new Date(data.data().timestamp?.seconds * 1000)
                           ).fromNow()}
                         </div>
                         {/*  <!-- COMMENT --> */}
@@ -252,35 +271,35 @@ const Post: React.FC<PostProps> = ({
                     alt="Profile picture"
                     className="w-9 h-9 rounded-full"
                   />
-                  <div className="flex-1 flex bg-gray-100 dark:bg-dark-third rounded-full items-center justify-between px-3">
+                  <div className="flex-1 flex bg-gray-100 dark:bg-gray-600 rounded-full items-center justify-between px-3">
                     <input
                       value={comment}
                       onChange={(e) => setComment(e.target.value)}
                       type="text"
                       placeholder="Write a comment..."
-                      className="outline-none bg-transparent flex-1"
+                      className="outline-none bg-transparent flex-1 dark:placeholder:text-gray-300"
                     />
                     {loading ? (
-                      <LoopIcon className="animate-spin text-blue-500 cursor-not-allowed mr-5" />
+                      <LoopIcon className="animate-spin text-blue-500 dark:text-blue-300 cursor-not-allowed mr-5" />
                     ) : (
                       <button
                         type="submit"
                         disabled={!comment}
                         onClick={sendComment}
-                        className="font-semibold text-blue-400 mr-5"
+                        className="font-semibold text-blue-400 mr-5 dark:text-blue-200"
                       >
                         Post
                       </button>
                     )}
 
                     <div className="flex space-x-0 items-center justify-center">
-                      <span className="w-7 h-7 grid place-items-center rounded-full hover:bg-gray-200 cursor-pointer text-gray-500 dark:text-dark-txt dark:hover:bg-dark-second text-xl">
+                      <span className="w-7 h-7 grid place-items-center rounded-full hover:bg-gray-200 cursor-pointer text-gray-500 dark:text-gray-300 dark:hover:bg-gray-800 text-xl">
                         <EmojiEmotionsIcon />
                       </span>
-                      <span className="w-7 h-7 grid place-items-center rounded-full hover:bg-gray-200 cursor-pointer text-gray-500 dark:text-dark-txt dark:hover:bg-dark-second text-xl">
+                      <span className="w-7 h-7 grid place-items-center rounded-full hover:bg-gray-200 cursor-pointer text-gray-500 dark:text-gray-300 dark:hover:bg-gray-800 text-xl">
                         <CameraAltIcon />
                       </span>
-                      <span className="w-7 h-7 grid place-items-center rounded-full hover:bg-gray-200 cursor-pointer text-gray-500 dark:text-dark-txt dark:hover:bg-dark-second text-xl">
+                      <span className="w-7 h-7 grid place-items-center rounded-full hover:bg-gray-200 cursor-pointer text-gray-500 dark:text-gray-300 dark:hover:bg-gray-800 text-xl">
                         <FavoriteIcon />
                       </span>
                     </div>
