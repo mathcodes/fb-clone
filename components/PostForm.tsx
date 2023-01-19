@@ -27,7 +27,7 @@ const PostForm: React.FC<PostFormProps> = () => {
           onClick={handleOpen}
           className="flex-1 bg-gray-100 rounded-full flex items-center justify-start pl-4 cursor-pointer dark:bg-dark-third text-gray-500 text-lg dark:text-dark-txt"
         >
-          <span>What's on your mind, Tuat?</span>
+          <span>Start typing here...</span>
         </div>
       </div>
       <div className="p-2 flex">
@@ -37,7 +37,7 @@ const PostForm: React.FC<PostFormProps> = () => {
         >
           <VideoCallIcon />
           <span className="text-xs sm:text-sm font-semibold text-gray-500 dark:text-dark-txt">
-            Live video
+            Live
           </span>
         </div>
         <div
@@ -55,7 +55,7 @@ const PostForm: React.FC<PostFormProps> = () => {
         >
           <InsertEmoticonIcon />
           <span className="text-xs sm:text-sm font-semibold text-gray-500 dark:text-dark-txt">
-            Feeling
+            Vibes
           </span>
         </div>
       </div>
