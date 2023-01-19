@@ -53,7 +53,7 @@ const PostForm: React.FC<PostFormProps> = ({ userData, isShow }) => {
           onClick={handleOpen}
           className="flex-1 bg-gray-100 rounded-full flex items-center justify-start pl-4 cursor-pointer dark:bg-gray-600 dark:text-gray-300 text-gray-500 text-lg"
         >
-          <span>What's on your mind, Tuat?</span>
+          <span>Start typing here...</span>
         </div>
       </div>
       <div className="p-2 flex">
@@ -64,8 +64,8 @@ const PostForm: React.FC<PostFormProps> = ({ userData, isShow }) => {
           className="w-1/3 flex space-x-2 justify-center items-center hover:bg-gray-100 dark:hover:bg-gray-800 text-xl sm:text-3xl py-2 rounded-lg cursor-pointer text-red-500"
         >
           <VideoCallIcon />
-          <span className="text-xs sm:text-sm font-semibold text-gray-500 dark:text-white">
-            Live video
+          <span className="text-xs sm:text-sm font-semibold text-gray-500 dark:text-dark-txt">
+            Live
           </span>
         </motion.div>
         <motion.div
@@ -86,8 +86,8 @@ const PostForm: React.FC<PostFormProps> = ({ userData, isShow }) => {
           className="w-1/3 flex space-x-2 justify-center items-center hover:bg-gray-100 dark:hover:bg-gray-800 text-xl sm:text-3xl py-2 rounded-lg cursor-pointer text-yellow-500"
         >
           <InsertEmoticonIcon />
-          <span className="text-xs sm:text-sm font-semibold text-gray-500 dark:text-white">
-            Feeling
+          <span className="text-xs sm:text-sm font-semibold text-gray-500 dark:text-dark-txt">
+            Vibes
           </span>
         </motion.div>
       </div>
