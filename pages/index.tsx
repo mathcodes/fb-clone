@@ -49,7 +49,7 @@ const Home: NextPage = () => {
       <section className="flex justify-center h-screen overflow-y-scroll">
         <LeftMenu />
 
-        <div className="w-full lg:w-2/3 xl:w-2/5 pt-32 lg:pt-16 px-2 ">
+        <div className="w-full px-2 pt-32 lg:w-2/3 xl:w-2/5 lg:pt-16 ">
           {isMessenger ? (
             <motion.div
               initial={{ opacity: 0 }}
@@ -72,7 +72,7 @@ const Home: NextPage = () => {
             </>
           )}
         </div>
-        {user ? <RightMenu isMessenger={isMessenger} /> : <NotUserMenu />}
+        {user ? <RightMenu /> : <NotUserMenu />}
       </section>
     </motion.div>
   );
