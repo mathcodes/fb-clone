@@ -33,7 +33,7 @@ const PostForm: React.FC<PostFormProps> = ({ userData, isShow }) => {
 
   return (
     <div className="px-4 mt-4 shadow rounded-lg bg-white dark:bg-[#28282B]">
-      <div className="p-2 border-b border-gray-300 dark:border-dark-third flex space-x-4">
+      <div className="flex p-2 space-x-4 border-b border-gray-300 dark:border-dark-third">
         {isShow ? (
           <img
             onClick={click}
@@ -51,20 +51,20 @@ const PostForm: React.FC<PostFormProps> = ({ userData, isShow }) => {
 
         <div
           onClick={handleOpen}
-          className="flex-1 bg-gray-100 rounded-full flex items-center justify-start pl-4 cursor-pointer dark:bg-gray-600 dark:text-gray-300 text-gray-500 text-lg"
+          className="flex items-center justify-start flex-1 pl-4 text-lg text-gray-500 bg-gray-100 rounded-full cursor-pointer dark:bg-gray-600 dark:text-gray-300"
         >
-          <span>What's on your mind, Tuat?</span>
+          <span>Begin typing here...</span>
         </div>
       </div>
-      <div className="p-2 flex">
+      <div className="flex p-2">
         <motion.div
           onClick={handleOpen}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          className="w-1/3 flex space-x-2 justify-center items-center hover:bg-gray-100 dark:hover:bg-gray-800 text-xl sm:text-3xl py-2 rounded-lg cursor-pointer text-red-500"
+          className="flex items-center justify-center w-1/3 py-2 space-x-2 text-xl text-red-500 rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 sm:text-3xl"
         >
           <VideoCallIcon />
-          <span className="text-xs sm:text-sm font-semibold text-gray-500 dark:text-white">
+          <span className="text-xs font-semibold text-gray-500 sm:text-sm dark:text-white">
             Live video
           </span>
         </motion.div>
@@ -72,10 +72,10 @@ const PostForm: React.FC<PostFormProps> = ({ userData, isShow }) => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={handleOpen}
-          className="w-1/3 flex space-x-2 justify-center items-center hover:bg-gray-100 dark:hover:bg-gray-800  text-xl sm:text-3xl py-2 rounded-lg cursor-pointer text-green-500"
+          className="flex items-center justify-center w-1/3 py-2 space-x-2 text-xl text-green-500 rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 sm:text-3xl"
         >
           <PhotoLibraryIcon />
-          <span className="text-xs sm:text-sm font-semibold text-gray-500 dark:text-white">
+          <span className="text-xs font-semibold text-gray-500 sm:text-sm dark:text-white">
             Photos
           </span>
         </motion.div>
@@ -83,10 +83,10 @@ const PostForm: React.FC<PostFormProps> = ({ userData, isShow }) => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={handleOpen}
-          className="w-1/3 flex space-x-2 justify-center items-center hover:bg-gray-100 dark:hover:bg-gray-800 text-xl sm:text-3xl py-2 rounded-lg cursor-pointer text-yellow-500"
+          className="flex items-center justify-center w-1/3 py-2 space-x-2 text-xl text-yellow-500 rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 sm:text-3xl"
         >
           <InsertEmoticonIcon />
-          <span className="text-xs sm:text-sm font-semibold text-gray-500 dark:text-white">
+          <span className="text-xs font-semibold text-gray-500 sm:text-sm dark:text-white">
             Feeling
           </span>
         </motion.div>

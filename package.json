@@ -16,7 +16,7 @@
     "@mui/material": "^5.11.4",
     "emoji-picker-react": "^4.4.7",
     "firebase": "^9.15.0",
-    "framer-motion": "^8.4.2",
+    "framer-motion": "^8.5.5",
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
     "next": "13.1.1",
